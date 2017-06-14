@@ -1,6 +1,7 @@
 const express = require('express');
 const url = require('url');
 const path = require('path');
+const body = require('body-parser');
 const app = express();
 
 app.set('port', 3000);
