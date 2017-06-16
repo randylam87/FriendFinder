@@ -1,11 +1,15 @@
 const express = require("express");
 const path = require('path');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const routes = require('./routing/htmlRoutes.js');
-
-// app.use(bodyParser.json());
+const api = require('./routing/apiRoutes.js');
+//for logic
+const friends = [];
+//middleware
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -14,26 +18,15 @@ app.use(bodyParser.json({
   type: "application/vnd.api+json"
 }));
 //routing
-routes.homeHtml(app, express);
-
 routes.surveyHtml(app);
-
-//survey + home
-// app.get('/:key?', (req, res) => {
-// let key = req.params.key;
-// switch (key) {
-//     case "survey":
-//         res.sendFile(path.join(`${__dirname}/public/`, "survey.html"));
-//         break;
-//     default:
-//         res.sendFile(path.join(`${__dirname}/public/`, "home.html"));
-// }
-// });
+//api
+console.log(api.survey(app,fs,friends));
+// api.survey(app,fs);
+api.friendsJSON(app,friends);
 
 app.listen(PORT,(req,res)=>{
     console.log(`Server is listening on PORT ${PORT}`);
 });
 
-app.post('/survey',(req,res)=>{
-    console.log(req.body);
-});
+
+routes.homeHtml(app, express);

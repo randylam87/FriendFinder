@@ -8,9 +8,15 @@ const routes = {
             res.sendFile(path.join(__dirname, '../public', 'survey.html'));
         });
     },
-    homeHtml: (app,express) => {
-        console.log(path.join(__dirname, '../public'));
-        app.use(express.static(path.join(__dirname, '../public')));
+    // homeHtml: (app,express) => {
+    //     console.log(path.join(__dirname, '../public'));
+    //     app.use(express.static(path.join(__dirname, '../public')));
+    // }
+
+    homeHtml: (app, express) => {
+        app.get('/', function (req, res) {
+            res.sendFile(path.join(__dirname, '../public', 'home.html'));
+        });
     }
 };
 module.exports = routes;
