@@ -16,7 +16,7 @@
             <nav class="navbar navbar-default">
                   <div class="container-fluid">
                         <div class="navbar-header">
-                              <a class="navbar-text" href="home">Home</a>
+                               <a href="/home"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-home"></span> Home</h4></button></a>
                         </div>
                   </div>
             </nav>
@@ -24,7 +24,7 @@
                   <h2>Survey Questions</h2>
                   <hr>
                   <h3><strong>About You</strong></h3>
-                  <form action='/api/friends' method='POST' id="survey">
+                  <form action='/api/friends' method='POST' id="survey" onsubmit=this.reset()>
                         <!--<fieldset>-->
                         <label for='name'><h4>Name (Required)</h4></label>
                         <input type="text" name="name" id="name" class="form-control" required>
@@ -32,7 +32,7 @@
                         <input type="text" name="photo" id="photo" class="form-control" required>
                         <hr>
                         <h3><strong>Question 1</strong></h3>
-                        <label for 'q1'><h4>PUBG is the best game.</h4></label><br>
+                        <label for 'q1'><h4>Money is very important to you.</h4></label><br>
                         <select class="question" id="q1" name='scores'>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -42,7 +42,7 @@
                               </select>
 
                         <h3><strong>Question 2</strong></h3>
-                        <label for 'q2'><h4>PUBG is the best game.</h4></label><br>
+                        <label for 'q2'><h4>You consider yourself to be a friendly person.</h4></label><br>
                         <select class="question" id="q2" name='scores'>	
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -52,7 +52,7 @@
                               </select>
 
                         <h3><strong>Question 3</strong></h3>
-                        <label for 'q3'><h4>PUBG is the best game.</h4></label><br>
+                        <label for 'q3'><h4>You consider yourself to be a very active person.</h4></label><br>
                         <select class="question" id="q3" name='scores'>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -62,7 +62,7 @@
                               </select>
 
                         <h3><strong>Question 4</strong></h3>
-                        <label for 'q4'><h4>PUBG is the best game.</h4></label><br>
+                        <label for 'q4'><h4>You are willing to do whatever it takes to accomplish your goals.</h4></label><br>
                         <select class="question" id="q4" name='scores'>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -72,7 +72,7 @@
                               </select>
 
                         <h3><strong>Question 5</strong></h3>
-                        <label for 'q5'><h4>PUBG is the best game.</h4></label><br>
+                        <label for 'q5'><h4>You consider yourself to be an intelligent person.</h4></label><br>
                         <select class="question" id="q5" name='scores'>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -82,7 +82,7 @@
                               </select>
 
                         <h3><strong>Question 6</strong></h3>
-                        <label for 'q6'><h4>PUBG is the best game.</h4></label><br>
+                        <label for 'q6'><h4>You consider eating food to be very important</h4></label><br>
                         <select class="question" id="q6" name='scores'>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -92,7 +92,7 @@
                               </select>
 
                         <h3><strong>Question 7</strong></h3>
-                        <label for 'q7'><h4>PUBG is the best game.</h4></label><br>
+                        <label for 'q7'><h4>You care more about yourself than others.</h4></label><br>
                         <select class="question" id="q7" name='scores'>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -102,7 +102,7 @@
                               </select>
 
                         <h3><strong>Question 8</strong></h3>
-                        <label for 'q8'><h4>PUBG is the best game.</h4></label><br>
+                        <label for 'q8'><h4>You enjoy spending quality time with your friends.</h4></label><br>
                         <select class="question" id="q8" name='scores'>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -112,7 +112,7 @@
                               </select>
 
                         <h3><strong>Question 9</strong></h3>
-                        <label for 'q9'><h4>PUBG is the best game.</h4></label><br>
+                        <label for 'q9'><h4>You have a strong sense of competition.</h4></label><br>
                         <select class="question" id="q9" name='scores'>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -122,7 +122,7 @@
                               </select>
 
                         <h3><strong>Question 10</strong></h3>
-                        <label for 'q10'><h4>PUBG is the best game.</h4></label><br>
+                        <label for 'q10'><h4>You like to plan out your actions.</h4></label><br>
                         <select class="question" id="q10" name='scores'>	
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -131,14 +131,37 @@
                                     <option value="5">5 (Strongly Agree)</option>
                               </select><br><br>
                         <!-- Submit Button -->
-                        <input type="submit" class="btn btn-primary" id="submit"></input>
+                        <button type="submit" class="btn btn-primary" data-toggle='modal' data-target='#resultsModal' id="submit">Submit</button>
                         <!--</fieldset>-->
                   </form>
                   <hr>
-                  <footer class="footer">
-                  </footer>
             </main>
-      </div>
+            <footer class="footer">
+                  <div class="container">
+                        <p><a href="/api/friends">API Friends List</a></p>
+                  </div>
+            </footer>
+
+            <!-- Modal -->
+            <div id="resultsModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                              <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h2 class="modal-title"><strong>Best Match</strong></h2>
+                              </div>
+                              <div class="modal-body">
+                                    <h2 id="matchName"></h2>
+                                    <img id="matchImg" src="" alt="">
+                              </div>
+                              <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+
 </body>
 
 </html>
