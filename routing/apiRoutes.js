@@ -1,6 +1,6 @@
-const api = {
+module.exports = {
     survey: (app,friends) => {
-        let bestMatchScore = 0;
+        let bestMatchScore = 50;
         let currentMatchScore =0;
         let bestMatchedUser;
         app.post('/survey', (req, res) => {
@@ -10,8 +10,6 @@ const api = {
                 for(let k=0; k< friends[i].scores.length; k++){
                    currentMatchScore += Math.abs(user.scores[k] - friends[i].scores[k]);
                 }
-                console.log(bestMatchScore);
-                console.log(currentMatchScore);
                 if(bestMatchScore >= currentMatchScore) {
                     bestMatchScore = currentMatchScore;
                     bestMatchedUser = friends[i];
@@ -21,7 +19,6 @@ const api = {
             res.json(bestMatchedUser);
             friends.push(user);
             res.end();
-            console.log(bestMatchedUser);
         });
     },
     friendsJSON: (app, friends) => {
@@ -30,5 +27,3 @@ const api = {
         });
     },
 };
-
-module.exports = api;
